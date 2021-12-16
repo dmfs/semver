@@ -1,0 +1,25 @@
+plugins {
+    id 'java'
+}
+sourceCompatibility = 1.8
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.dmfs:srcless-annotations:0.0.3'
+    annotationProcessor 'org.dmfs:srcless-processors:0.0.3'
+    implementation "org.dmfs:jems2:2.7.0"
+    testImplementation "org.dmfs:jems2-testing:2.7.0"
+    testImplementation "org.hamcrest:hamcrest:2.2"
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
+}
+
+test {
+    useJUnitPlatform()
+}
