@@ -4,10 +4,8 @@ import org.dmfs.semver.PreRelease;
 import org.dmfs.semver.Release;
 import org.junit.jupiter.api.Test;
 
-import static org.hamcrest.CoreMatchers.equalTo;
-import static org.hamcrest.CoreMatchers.is;
+import static org.dmfs.jems2.hamcrest.matchers.comparable.ComparableOrderMatcher.imposesOrderOf;
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.lessThan;
 
 
 class VersionComparatorTest
@@ -17,75 +15,27 @@ class VersionComparatorTest
     void testReleases()
     {
         assertThat(
-            new VersionComparator().compare(
-                new Release(1, 0, 0),
-                new Release(1, 0, 0)),
-            is(equalTo(0)));
-
-        assertThat(
-            new VersionComparator().compare(
-                new Release(1, 0, 0),
-                new Release(2, 0, 0)),
-            is(lessThan(0)));
-
-        assertThat(
-            new VersionComparator().compare(
-                new Release(1, 0, 0),
-                new Release(1, 1, 0)),
-            is(lessThan(0)));
-
-        assertThat(
-            new VersionComparator().compare(
-                new Release(1, 0, 0),
-                new Release(1, 0, 1)),
-            is(lessThan(0)));
-
-        assertThat(
-            new VersionComparator().compare(
-                new Release(1, 0, 99),
-                new Release(1, 1, 0)),
-            is(lessThan(0)));
-
-        assertThat(
-            new VersionComparator().compare(
-                new Release(1, 99, 0),
-                new Release(2, 0, 0)),
-            is(lessThan(0)));
-
-    }
-
-
-    void testPreReleases()
-    {
-        assertThat(
-            new VersionComparator().compare(
-                new PreRelease(new Release(1, 0, 0), "alpha.1"),
-                new PreRelease(new Release(1, 0, 0), "alpha.1")),
-            is(equalTo(0)));
-
-        assertThat(
-            new VersionComparator().compare(
+            new VersionComparator(),
+            imposesOrderOf(
                 new PreRelease(new Release(1, 0, 0), "alpha"),
-                new Release(1, 0, 0)),
-            is(lessThan(0)));
-
-        assertThat(
-            new VersionComparator().compare(
                 new PreRelease(new Release(1, 0, 0), "alpha.1"),
-                new PreRelease(new Release(1, 0, 0), "alpha.2")),
-            is(lessThan(0)));
-
-        assertThat(
-            new VersionComparator().compare(
-                new PreRelease(new Release(1, 0, 0), "alpha.1"),
-                new PreRelease(new Release(1, 0, 0), "alpha.1.a")),
-            is(lessThan(0)));
-
-        assertThat(
-            new VersionComparator().compare(
-                new PreRelease(new Release(1, 0, 0), "alpha.1"),
-                new PreRelease(new Release(1, 0, 0), "alpha.a")),
-            is(lessThan(0)));
+                new Release(1, 0, 0),
+                new PreRelease(new Release(1, 0, 3), "alpha"),
+                new PreRelease(new Release(1, 0, 3), "beta"),
+                new Release(1, 0, 3),
+                new PreRelease(new Release(1, 2, 0), "alpha"),
+                new PreRelease(new Release(1, 2, 0), "rc.1"),
+                new Release(1, 2, 0),
+                new PreRelease(new Release(1, 2, 3), "alpha"),
+                new Release(1, 2, 3),
+                new PreRelease(new Release(2, 0, 0), "alpha"),
+                new Release(2, 0, 0),
+                new PreRelease(new Release(2, 0, 3), "alpha"),
+                new Release(2, 0, 3),
+                new PreRelease(new Release(2, 2, 0), "alpha"),
+                new Release(2, 2, 0),
+                new PreRelease(new Release(2, 2, 3), "alpha"),
+                new Release(2, 2, 3)));
     }
 
 }
