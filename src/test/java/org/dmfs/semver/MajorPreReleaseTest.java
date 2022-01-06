@@ -15,14 +15,26 @@ class MajorPreReleaseTest
     {
         assertThat(new MajorPreRelease(new PreRelease(new Release(1, 0, 0), "alpha"), "beta"),
             is(preRelease(version(1, 0, 0), "beta")));
+        assertThat(new MajorPreRelease(new PreRelease(new Release(1, 0, 0), "beta"), "alpha"),
+            is(preRelease(version(2, 0, 0), "alpha")));
         assertThat(new MajorPreRelease(new Release(1, 0, 0), "beta"),
+            is(preRelease(version(2, 0, 0), "beta")));
+        assertThat(new MajorPreRelease(new PreRelease(new Release(1, 0, 1), "alpha"), "beta"),
+            is(preRelease(version(2, 0, 0), "beta")));
+        assertThat(new MajorPreRelease(new PreRelease(new Release(1, 0, 1), "beta"), "alpha"),
+            is(preRelease(version(2, 0, 0), "alpha")));
+        assertThat(new MajorPreRelease(new Release(1, 0, 1), "beta"),
             is(preRelease(version(2, 0, 0), "beta")));
         assertThat(new MajorPreRelease(new PreRelease(new Release(1, 2, 0), "alpha"), "beta"),
             is(preRelease(version(2, 0, 0), "beta")));
+        assertThat(new MajorPreRelease(new PreRelease(new Release(1, 2, 0), "beta"), "alpha"),
+            is(preRelease(version(2, 0, 0), "alpha")));
         assertThat(new MajorPreRelease(new Release(1, 2, 0), "beta"),
             is(preRelease(version(2, 0, 0), "beta")));
         assertThat(new MajorPreRelease(new PreRelease(new Release(1, 2, 3), "alpha"), "beta"),
             is(preRelease(version(2, 0, 0), "beta")));
+        assertThat(new MajorPreRelease(new PreRelease(new Release(1, 2, 3), "beta"), "alpha"),
+            is(preRelease(version(2, 0, 0), "alpha")));
         assertThat(new MajorPreRelease(new Release(1, 2, 3), "beta"),
             is(preRelease(version(2, 0, 0), "beta")));
     }
