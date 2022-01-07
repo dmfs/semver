@@ -18,10 +18,10 @@ import static org.dmfs.jems2.optional.Absent.absent;
  * <pre>
  * current version    pre-release     Minor pre-release
  * 1.0.0-alpha        beta            1.0.0-beta
- * 1.0.0-beta         alpha           1.1.0-alpha (minor version rolls over, because 1.0.0-alpha would be < 1.0.0-beta)
+ * 1.0.0-beta         alpha           1.1.0-alpha (minor version rolls over, because 1.0.0-alpha would be &lt; 1.0.0-beta)
  * 1.0.0              beta            1.1.0-beta
  * 1.2.0-alpha        beta            1.2.0-beta
- * 1.2.0-beta         alpha           1.3.0-alpha (minor version rolls over, because 1.2.0-alpha would be < 1.2.0-beta)
+ * 1.2.0-beta         alpha           1.3.0-alpha (minor version rolls over, because 1.2.0-alpha would be &lt; 1.2.0-beta)
  * 1.2.0              beta            1.3.0-beta
  * 1.2.0              beta            1.3.0-beta
  * 1.2.3-alpha        beta            1.3.0-beta
@@ -47,8 +47,8 @@ public final class MinorPreRelease extends VersionComposition
     private MinorPreRelease(Version delegate, String preRelease, Optional<String> build)
     {
         super(new PreRelease(
-            new OptionalComparator<>(new PreReleaseComparator()).compare(delegate.preRelease(), new Present<>(preRelease)) < 0 || delegate.patch() != 0
-                ? new NextMinor(delegate)
-                : new NextMinor(new NextMinor(delegate)), preRelease, build));
+            new OptionalComparator<>(new PreReleaseComparator()).compare(delegate.preRelease(), new Present<>(preRelease)) >= 0 && delegate.patch() == 0
+                ? new NextMinor(new NextMinor(delegate))
+                : new NextMinor(delegate), preRelease, build));
     }
 }

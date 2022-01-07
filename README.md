@@ -8,7 +8,7 @@ Another [Semantic Versioning 2.0.0](https://semver.org/spec/v2.0.0.html) impleme
 
 ## TODOs
 
-* implement parser
+* implement lax parser
 * validate pre-release & build identifiers
 
 ## Usage
@@ -34,9 +34,10 @@ new NextMajor(version)
 Given a current version `version`  a new pre-release is created with
 
 ```java
-new PatchPreRelease(version)
-new MinorPreRelease(version)
-new MajorPreRelease(version)
+new NextPreRelease(version)  // creates a pre-release version that's greater than the given one
+new PatchPreRelease(version) // creates a pre-release of the next patch version
+new MinorPreRelease(version) // creates a pre-release of the next minor version
+new MajorPreRelease(version) // creates a pre-release of the next major version
 ```
 
 ### Conversion to CharSequence/String
