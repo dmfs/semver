@@ -14,7 +14,7 @@ import static org.dmfs.jems2.optional.Absent.absent;
  * For a given version this will result in
  *
  * <pre>
- * current version    Next Major Release
+ * current version    Next Minor Release
  * 1.0.0-alpha        1.0.0
  * 1.0.0              1.1.0
  * 1.2.0-alpha        1.2.0

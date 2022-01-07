@@ -16,7 +16,7 @@ import static org.dmfs.jems2.optional.Absent.absent;
  * For a given version and pre-release this will result in
  *
  * <pre>
- * current version    pre-release     Major pre-release
+ * current version    pre-release     Minor pre-release
  * 1.0.0-alpha        beta            1.0.0-beta
  * 1.0.0-beta         alpha           1.1.0-alpha (minor version rolls over, because 1.0.0-alpha would be < 1.0.0-beta)
  * 1.0.0              beta            1.1.0-beta

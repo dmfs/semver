@@ -30,7 +30,7 @@ public final class PreRelease extends VersionComposition
     }
 
 
-    private PreRelease(Version delegate, Optional<String> preRelease, Optional<String> build)
+    PreRelease(Version delegate, Optional<String> preRelease, Optional<String> build)
     {
         super(new Version()
         {
