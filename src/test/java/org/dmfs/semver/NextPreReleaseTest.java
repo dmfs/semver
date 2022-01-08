@@ -56,7 +56,7 @@ class NextPreReleaseTest
             is(preRelease(version(1, 2, 3), "beta.2")));
 
         assertThat(new NextPreRelease(new Release(1, 2, 3), "beta"),
-            is(preRelease(version(1, 3, 0), "alpha")));
+            is(preRelease(version(1, 3, 0), "beta")));
 
     }
 
