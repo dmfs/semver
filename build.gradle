@@ -1,6 +1,10 @@
-apply plugin: 'java-library'
+plugins {
+    id 'java-library'
+}
 apply from: 'publish.gradle'
 apply from: 'jacoco.gradle'
+
+sourceCompatibility = 1.8
 
 def gitVersion = { ->
     def stdout = new ByteArrayOutputStream()
