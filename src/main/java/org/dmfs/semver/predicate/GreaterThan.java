@@ -5,6 +5,9 @@ import org.dmfs.semver.Version;
 import org.dmfs.semver.comparators.VersionComparator;
 
 
+/**
+ * A {@link Predicate} that matches when the test candidate is greater (newer) than a given version.
+ */
 public final class GreaterThan implements Predicate<Version>, java.util.function.Predicate<Version>
 {
     private final Version mVersion;
@@ -26,6 +29,6 @@ public final class GreaterThan implements Predicate<Version>, java.util.function
     @Override
     public boolean satisfiedBy(Version testedInstance)
     {
-        return VersionComparator.INSTANCE.compare(testedInstance, mVersion) > 0;
+        return VersionComparator.VERSION_COMPARATOR.compare(testedInstance, mVersion) > 0;
     }
 }

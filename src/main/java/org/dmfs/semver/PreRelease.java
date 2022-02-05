@@ -12,25 +12,14 @@ import static org.dmfs.jems2.optional.Absent.absent;
  */
 public final class PreRelease extends VersionComposition
 {
+
     public PreRelease(Version delegate, String preRelease)
     {
-        this(delegate, preRelease, absent());
+        this(delegate, new Present<>(preRelease));
     }
 
 
-    public PreRelease(Version delegate, String preRelease, String build)
-    {
-        this(delegate, preRelease, new Present<>(build));
-    }
-
-
-    public PreRelease(Version delegate, String preRelease, Optional<String> build)
-    {
-        this(delegate, new Present<>(preRelease), build);
-    }
-
-
-    PreRelease(Version delegate, Optional<String> preRelease, Optional<String> build)
+    PreRelease(Version delegate, Optional<String> preRelease)
     {
         super(new Version()
         {
@@ -66,7 +55,7 @@ public final class PreRelease extends VersionComposition
             @Override
             public Optional<String> build()
             {
-                return build;
+                return absent();
             }
         });
     }

@@ -13,7 +13,7 @@ class VersionSequenceTest
     void test()
     {
         assertThat(
-            new VersionSequence(new PreRelease(new Release(1, 2, 3), "xyz", "abc")),
+            new VersionSequence(new WithBuildMeta(new PreRelease(new Release(1, 2, 3), "xyz"), "abc")),
             hasToString("1.2.3-xyz+abc"));
         assertThat(
             new VersionSequence(new PreRelease(new Release(1, 2, 3), "xyz")),

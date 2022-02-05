@@ -1,13 +1,5 @@
 package org.dmfs.semver;
 
-import org.dmfs.jems2.Optional;
-import org.dmfs.jems2.comparator.OptionalComparator;
-import org.dmfs.jems2.optional.Present;
-import org.dmfs.semver.comparators.PreReleaseComparator;
-
-import static org.dmfs.jems2.optional.Absent.absent;
-
-
 /**
  * A pre-release of the next major version.
  *
@@ -33,24 +25,22 @@ import static org.dmfs.jems2.optional.Absent.absent;
  */
 public final class MajorPreRelease extends VersionComposition
 {
+
+    public MajorPreRelease(Version delegate)
+    {
+        this(delegate, "alpha");
+    }
+
+
     public MajorPreRelease(Version delegate, String preRelease)
     {
-        this(delegate, preRelease, absent());
+        this(preRelease, new NextPreRelease(delegate, NextMajor::new, preRelease));
     }
 
 
-    public MajorPreRelease(Version delegate, String preRelease, String build)
+    private MajorPreRelease(String preRelease, Version delegate)
     {
-        this(delegate, preRelease, new Present<>(build));
+        super(delegate.minor() == 0 && delegate.patch() == 0 ? delegate : new PreRelease(new NextMajor(delegate), preRelease));
     }
 
-
-    private MajorPreRelease(Version delegate, String preRelease, Optional<String> build)
-    {
-        super(new PreRelease(
-            new OptionalComparator<>(new PreReleaseComparator()).compare(delegate.preRelease(), new Present<>(preRelease)) >= 0
-                && delegate.patch() == 0 && delegate.minor() == 0
-                ? new NextMajor(new NextMajor(delegate))
-                : new NextMajor(delegate), preRelease, build));
-    }
 }
