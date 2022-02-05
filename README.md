@@ -1,5 +1,5 @@
 [![Build Status](https://travis-ci.com/dmfs/semver.svg?branch=main)](https://travis-ci.com/dmfs/semver)
-[![codecov](https://codecov.io/gh/dmfs/v/branch/main/graph/badge.svg)](https://codecov.io/gh/dmfs/semver)
+[![codecov](https://codecov.io/gh/dmfs/semver/branch/main/graph/badge.svg?token=2vzHFiHKGk)](https://codecov.io/gh/dmfs/semver)
 [![Language grade: Java](https://img.shields.io/lgtm/grade/java/g/dmfs/semver.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/dmfs/semver/context:java)
 
 # semver
