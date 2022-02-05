@@ -5,6 +5,9 @@ import org.dmfs.semver.Version;
 import org.dmfs.semver.comparators.VersionComparator;
 
 
+/**
+ * A {@link Predicate} that matches when the test candidate matches a given version.
+ */
 public final class EqualTo implements Predicate<Version>, java.util.function.Predicate<Version>
 {
     private final Version mVersion;
@@ -24,8 +27,8 @@ public final class EqualTo implements Predicate<Version>, java.util.function.Pre
 
 
     @Override
-    public boolean satisfiedBy(Version testedInstance)
+    public boolean satisfiedBy(Version candidate)
     {
-        return VersionComparator.INSTANCE.compare(testedInstance, mVersion) == 0;
+        return VersionComparator.VERSION_COMPARATOR.compare(candidate, mVersion) == 0;
     }
 }

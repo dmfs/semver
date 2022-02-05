@@ -54,10 +54,6 @@ class NextPreReleaseTest
 
         assertThat(new NextPreRelease(new PreRelease(new Release(1, 2, 3), "beta.1")),
             is(preRelease(version(1, 2, 3), "beta.2")));
-
-        assertThat(new NextPreRelease(new Release(1, 2, 3), "beta"),
-            is(preRelease(version(1, 3, 0), "beta")));
-
     }
 
 
@@ -65,16 +61,16 @@ class NextPreReleaseTest
     void test()
     {
         assertThat(new NextPreRelease(new PreRelease(new Release(1, 0, 0), "alpha"), "beta"),
-            is(preRelease(version(1, 0, 0), "alpha.1")));
+            is(preRelease(version(1, 0, 0), "beta")));
 
         assertThat(new NextPreRelease(new PreRelease(new Release(1, 0, 0), "alpha.1"), "beta"),
-            is(preRelease(version(1, 0, 0), "alpha.2")));
+            is(preRelease(version(1, 0, 0), "beta")));
 
         assertThat(new NextPreRelease(new PreRelease(new Release(1, 0, 0), "beta"), "alpha"),
-            is(preRelease(version(1, 0, 0), "beta.1")));
+            is(preRelease(version(1, 1, 0), "alpha")));
 
         assertThat(new NextPreRelease(new PreRelease(new Release(1, 0, 0), "beta.1"), "alpha"),
-            is(preRelease(version(1, 0, 0), "beta.2")));
+            is(preRelease(version(1, 1, 0), "alpha")));
 
         assertThat(new NextPreRelease(new PreRelease(new Release(1, 0, 0), "beta"), "beta"),
             is(preRelease(version(1, 0, 0), "beta.1")));
@@ -86,16 +82,16 @@ class NextPreReleaseTest
             is(preRelease(version(1, 1, 0), "beta")));
 
         assertThat(new NextPreRelease(new PreRelease(new Release(1, 2, 0), "alpha"), "beta"),
-            is(preRelease(version(1, 2, 0), "alpha.1")));
+            is(preRelease(version(1, 2, 0), "beta")));
 
         assertThat(new NextPreRelease(new PreRelease(new Release(1, 2, 0), "alpha.1"), "beta"),
-            is(preRelease(version(1, 2, 0), "alpha.2")));
+            is(preRelease(version(1, 2, 0), "beta")));
 
         assertThat(new NextPreRelease(new PreRelease(new Release(1, 2, 0), "beta"), "alpha"),
-            is(preRelease(version(1, 2, 0), "beta.1")));
+            is(preRelease(version(1, 3, 0), "alpha")));
 
         assertThat(new NextPreRelease(new PreRelease(new Release(1, 2, 0), "beta.1"), "alpha"),
-            is(preRelease(version(1, 2, 0), "beta.2")));
+            is(preRelease(version(1, 3, 0), "alpha")));
 
         assertThat(new NextPreRelease(new PreRelease(new Release(1, 2, 0), "beta"), "beta"),
             is(preRelease(version(1, 2, 0), "beta.1")));
@@ -107,16 +103,16 @@ class NextPreReleaseTest
             is(preRelease(version(1, 3, 0), "beta")));
 
         assertThat(new NextPreRelease(new PreRelease(new Release(1, 2, 3), "alpha"), "beta"),
-            is(preRelease(version(1, 2, 3), "alpha.1")));
+            is(preRelease(version(1, 2, 3), "beta")));
 
         assertThat(new NextPreRelease(new PreRelease(new Release(1, 2, 3), "alpha.1"), "beta"),
-            is(preRelease(version(1, 2, 3), "alpha.2")));
+            is(preRelease(version(1, 2, 3), "beta")));
 
         assertThat(new NextPreRelease(new PreRelease(new Release(1, 2, 3), "beta"), "alpha"),
-            is(preRelease(version(1, 2, 3), "beta.1")));
+            is(preRelease(version(1, 3, 0), "alpha")));
 
         assertThat(new NextPreRelease(new PreRelease(new Release(1, 2, 3), "beta.1"), "alpha"),
-            is(preRelease(version(1, 2, 3), "beta.2")));
+            is(preRelease(version(1, 3, 0), "alpha")));
 
         assertThat(new NextPreRelease(new PreRelease(new Release(1, 2, 3), "beta"), "beta"),
             is(preRelease(version(1, 2, 3), "beta.1")));

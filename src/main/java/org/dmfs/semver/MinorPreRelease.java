@@ -1,13 +1,5 @@
 package org.dmfs.semver;
 
-import org.dmfs.jems2.Optional;
-import org.dmfs.jems2.comparator.OptionalComparator;
-import org.dmfs.jems2.optional.Present;
-import org.dmfs.semver.comparators.PreReleaseComparator;
-
-import static org.dmfs.jems2.optional.Absent.absent;
-
-
 /**
  * A pre-release of the next minor version.
  *
@@ -32,23 +24,20 @@ import static org.dmfs.jems2.optional.Absent.absent;
  */
 public final class MinorPreRelease extends VersionComposition
 {
+    public MinorPreRelease(Version delegate)
+    {
+        this(delegate, "alpha");
+    }
+
+
     public MinorPreRelease(Version delegate, String preRelease)
     {
-        this(delegate, preRelease, absent());
+        this(preRelease, new NextPreRelease(delegate, NextMinor::new, preRelease));
     }
 
 
-    public MinorPreRelease(Version delegate, String preRelease, String build)
+    private MinorPreRelease(String preRelease, Version delegate)
     {
-        this(delegate, preRelease, new Present<>(build));
-    }
-
-
-    private MinorPreRelease(Version delegate, String preRelease, Optional<String> build)
-    {
-        super(new PreRelease(
-            new OptionalComparator<>(new PreReleaseComparator()).compare(delegate.preRelease(), new Present<>(preRelease)) >= 0 && delegate.patch() == 0
-                ? new NextMinor(new NextMinor(delegate))
-                : new NextMinor(delegate), preRelease, build));
+        super(delegate.patch() == 0 ? delegate : new PreRelease(new NextMinor(delegate), preRelease));
     }
 }

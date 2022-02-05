@@ -36,4 +36,10 @@ public final class Matchers
     {
         return allOf(version, having("preRelease", Version::preRelease, present(preRelease)));
     }
+
+
+    public static Matcher<Version> buildMeta(String buildMeta)
+    {
+        return having("buildMeta", Version::build, present(buildMeta));
+    }
 }
