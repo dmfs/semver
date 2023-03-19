@@ -1,0 +1,32 @@
+apply plugin: 'java-library'
+apply from: '../jacoco.gradle'
+
+sourceCompatibility = 1.8
+
+configurations {
+    pom
+}
+
+apply from: '../publish.gradle'
+
+dependencies {
+    compileOnly 'org.eclipse.jdt:org.eclipse.jdt.annotation:2.2.600'
+    compileOnly 'org.dmfs:srcless-annotations:0.3.0'
+    annotationProcessor 'org.dmfs:srcless-processors:0.3.0'
+    annotationProcessor 'org.dmfs:nullless-processors:0.3.0'
+
+    api rootProject
+    implementation 'org.dmfs:jems2:2.18.0'
+    implementation 'org.saynotobugs:confidence-core:0.14.0'
+    implementation 'org.saynotobugs:confidence-incubator:0.14.0'
+    implementation 'org.dmfs:jems2-confidence:2.18.0'
+
+    testImplementation 'org.dmfs:jems2-testing:2.18.0'
+    testImplementation 'org.saynotobugs:confidence-test:0.14.0'
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.9.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.9.0'
+}
+
+test {
+    useJUnitPlatform()
+}
