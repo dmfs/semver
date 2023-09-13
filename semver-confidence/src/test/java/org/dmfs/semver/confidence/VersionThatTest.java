@@ -1,11 +1,11 @@
 package org.dmfs.semver.confidence;
 
 import org.dmfs.semver.Version;
+import org.saynotobugs.confidence.junit5.engine.Assertion;
 import org.saynotobugs.confidence.junit5.engine.Confidence;
-import org.saynotobugs.confidence.junit5.engine.Verifiable;
 
 import static org.dmfs.jems2.mockito.Mock.*;
-import static org.saynotobugs.confidence.junit5.engine.ConfidenceEngine.assertThat;
+import static org.saynotobugs.confidence.junit5.engine.ConfidenceEngine.assertionThat;
 import static org.saynotobugs.confidence.quality.Core.allOf;
 import static org.saynotobugs.confidence.test.quality.Test.*;
 
@@ -13,7 +13,7 @@ import static org.saynotobugs.confidence.test.quality.Test.*;
 @Confidence
 class VersionThatTest
 {
-    Verifiable versionThat_with_one_delegate = assertThat(
+    Assertion versionThat_with_one_delegate = assertionThat(
         new VersionThat(new HasMajor(1)),
         allOf(
             passes(mock(Version.class, with(Version::major, returning(1)))),
@@ -21,7 +21,7 @@ class VersionThatTest
             hasDescription("has major <1>"))
     );
 
-    Verifiable versionThat_with_multiple_delegates = assertThat(
+    Assertion versionThat_with_multiple_delegates = assertionThat(
         new VersionThat(new HasMajor(1), new HasMinor(2), new HasPatch(3)),
         allOf(
             passes(mock(Version.class,
