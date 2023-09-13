@@ -3,12 +3,12 @@ package org.dmfs.semver.confidence;
 import org.dmfs.jems2.optional.Absent;
 import org.dmfs.jems2.optional.Present;
 import org.dmfs.semver.Version;
+import org.saynotobugs.confidence.junit5.engine.Assertion;
 import org.saynotobugs.confidence.junit5.engine.Confidence;
-import org.saynotobugs.confidence.junit5.engine.Verifiable;
 import org.saynotobugs.confidence.quality.object.EqualTo;
 
 import static org.dmfs.jems2.mockito.Mock.*;
-import static org.saynotobugs.confidence.junit5.engine.ConfidenceEngine.assertThat;
+import static org.saynotobugs.confidence.junit5.engine.ConfidenceEngine.assertionThat;
 import static org.saynotobugs.confidence.quality.Core.allOf;
 import static org.saynotobugs.confidence.test.quality.Test.*;
 
@@ -16,7 +16,7 @@ import static org.saynotobugs.confidence.test.quality.Test.*;
 @Confidence
 class PreReleaseTest
 {
-    Verifiable preRelease_with_primitives = assertThat(
+    Assertion preRelease_with_primitives = assertionThat(
         new PreRelease(1, 2, 3, "abc"),
         allOf(
             passes(mock(Version.class,
@@ -52,7 +52,7 @@ class PreReleaseTest
             hasDescription("has major <1>\n  and\n  has minor <2>\n  and\n  has patch <3>\n  and\n  has preRelease present \"abc\""))
     );
 
-    Verifiable preRelease_with_qualities = assertThat(
+    Assertion preRelease_with_qualities = assertionThat(
         new PreRelease(new EqualTo<>(1), new EqualTo<>(2), new EqualTo<>(3), new EqualTo<>("abc")),
         allOf(
             passes(mock(Version.class,

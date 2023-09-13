@@ -4,7 +4,8 @@ plugins {
     id 'io.github.gradle-nexus.publish-plugin' version '1.1.0' apply false
 }
 
-sourceCompatibility = 1.8
+sourceCompatibility = JavaVersion.VERSION_1_8
+targetCompatibility = JavaVersion.VERSION_1_8
 
 gver {
     issueTracker GitHub {
@@ -79,8 +80,8 @@ dependencies {
     implementation "org.dmfs:jems2:2.18.0"
 
     testImplementation project(":semver-confidence")
-    testImplementation 'org.saynotobugs:confidence-core:0.14.0'
-    testImplementation 'org.saynotobugs:confidence-incubator:0.14.0'
+    testImplementation 'org.saynotobugs:confidence-core:0.22.3'
+    testImplementation 'org.saynotobugs:confidence-incubator:0.22.3'
     testImplementation "org.dmfs:jems2-testing:2.18.0"
     testImplementation "org.dmfs:jems2-confidence:2.18.0"
     testImplementation "org.hamcrest:hamcrest:2.2"

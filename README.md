@@ -1,6 +1,7 @@
-[![Build Status](https://travis-ci.com/dmfs/semver.svg?branch=main)](https://travis-ci.com/dmfs/semver)
-[![codecov](https://codecov.io/gh/dmfs/semver/branch/main/graph/badge.svg?token=2vzHFiHKGk)](https://codecov.io/gh/dmfs/semver)
-[![Language grade: Java](https://img.shields.io/lgtm/grade/java/g/dmfs/semver.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/dmfs/semver/context:java)
+[![Build](https://github.com/dmfs/semver/actions/workflows/main.yml/badge.svg?label=main)](https://github.com/dmfs/semver/actions/workflows/main.yml)  
+[![codecov](https://codecov.io/gh/dmfs/semver/branch/main/graph/badge.svg?token=2vzHFiHKGk)](https://codecov.io/gh/dmfs/semver)  
+[![Confidence](https://img.shields.io/badge/Tested_with-Confidence-800000?labelColor=white)](https://saynotobugs.org/confidence)
+
 
 # semver
 
@@ -16,12 +17,12 @@ Another [Semantic Versioning 2.0.0](https://semver.org/spec/v2.0.0.html) impleme
 ### Create a version from scratch
 
 ```java
-Version version = new StructuredVersion(1,0,0); // creates 1.0.0
+Version version = new Release(1,0,0); // creates 1.0.0
 ```
 
 ### Create a new release
 
-Given a current version `version`  a new patch, minor or major release is created with
+Given a current version `version`, a new patch, minor or major release is created with
 
 ```java
 new NextPatch(version)
@@ -47,13 +48,13 @@ representation you use a dedicated adapter class called `VersionSequence`, on wh
 
 ```java
 CharSequence ver = new VersionSequence(version);
-String varString = new VersionSequence(version).toString();
+String verString = new VersionSequence(version).toString();
 ```
 
 
 ## License
 
-Copyright 2021 dmfs GmbH
+Copyright 2023 dmfs GmbH
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.

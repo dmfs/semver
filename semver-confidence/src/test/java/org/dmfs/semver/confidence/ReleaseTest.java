@@ -3,12 +3,12 @@ package org.dmfs.semver.confidence;
 import org.dmfs.jems2.optional.Absent;
 import org.dmfs.jems2.optional.Present;
 import org.dmfs.semver.Version;
+import org.saynotobugs.confidence.junit5.engine.Assertion;
 import org.saynotobugs.confidence.junit5.engine.Confidence;
-import org.saynotobugs.confidence.junit5.engine.Verifiable;
 import org.saynotobugs.confidence.quality.object.EqualTo;
 
 import static org.dmfs.jems2.mockito.Mock.*;
-import static org.saynotobugs.confidence.junit5.engine.ConfidenceEngine.assertThat;
+import static org.saynotobugs.confidence.junit5.engine.ConfidenceEngine.assertionThat;
 import static org.saynotobugs.confidence.quality.Core.allOf;
 import static org.saynotobugs.confidence.quality.Core.matchesPattern;
 import static org.saynotobugs.confidence.test.quality.Test.*;
@@ -17,7 +17,7 @@ import static org.saynotobugs.confidence.test.quality.Test.*;
 @Confidence
 class ReleaseTest
 {
-    Verifiable release_with_ints = assertThat(
+    Assertion release_with_ints = assertionThat(
         new Release(1, 2, 3),
         allOf(
             passes(mock(Version.class,
@@ -50,7 +50,7 @@ class ReleaseTest
             hasDescription("has major <1>\n  and\n  has minor <2>\n  and\n  has patch <3>\n  and\n  has preRelease <absent>"))
     );
 
-    Verifiable release_with_qualities = assertThat(
+    Assertion release_with_qualities = assertionThat(
         new Release(new EqualTo<>(1), new EqualTo<>(2), new EqualTo<>(3)),
         allOf(
             passes(mock(Version.class,

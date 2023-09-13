@@ -1,7 +1,8 @@
 apply plugin: 'java-library'
 apply from: '../jacoco.gradle'
 
-sourceCompatibility = 1.8
+sourceCompatibility = JavaVersion.VERSION_1_8
+targetCompatibility = JavaVersion.VERSION_1_8
 
 configurations {
     pom
@@ -17,12 +18,13 @@ dependencies {
 
     api rootProject
     implementation 'org.dmfs:jems2:2.18.0'
-    implementation 'org.saynotobugs:confidence-core:0.14.0'
-    implementation 'org.saynotobugs:confidence-incubator:0.14.0'
+    implementation 'org.saynotobugs:confidence-core:0.22.3'
+    implementation 'org.saynotobugs:confidence-incubator:0.22.3'
     implementation 'org.dmfs:jems2-confidence:2.18.0'
 
+    testImplementation 'org.dmfs:jems2:2.18.0'
     testImplementation 'org.dmfs:jems2-testing:2.18.0'
-    testImplementation 'org.saynotobugs:confidence-test:0.14.0'
+    testImplementation 'org.saynotobugs:confidence-test:0.22.3'
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.9.0'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.9.0'
 }
