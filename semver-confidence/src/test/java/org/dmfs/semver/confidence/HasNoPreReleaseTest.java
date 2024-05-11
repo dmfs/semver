@@ -21,7 +21,7 @@ class HasNoPreReleaseTest
         allOf(
             passes(mock(Version.class, with(Version::preRelease, returning(new Absent<>())))),
             fails(mock(Version.class, with(Version::preRelease, returning(new Present<>("123456")))),
-                describesAs(matchesPattern("had preRelease <present <org\\.dmfs\\.jems2\\.optional\\.Present@.*> >"))),
+                describesAs(matchesPattern("had preRelease <present \"123456\" >"))),
             hasDescription("has preRelease <absent>")
         )
     );

@@ -18,7 +18,7 @@ class VersionThatTest
         allOf(
             passes(mock(Version.class, with(Version::major, returning(1)))),
             fails(mock(Version.class, with(Version::major, returning(2))), "{ had major <2> }"),
-            hasDescription("has major <1>"))
+            hasDescription("{ has major <1> }"))
     );
 
     Assertion versionThat_with_multiple_delegates = assertionThat(
@@ -40,6 +40,6 @@ class VersionThatTest
                 with(Version::major, returning(1)),
                 with(Version::minor, returning(2)),
                 with(Version::patch, returning(2))), "{ ...\n  had patch <2> }"),
-            hasDescription("has major <1>\n  and\n  has minor <2>\n  and\n  has patch <3>"))
+            hasDescription("{ has major <1>\n  and\n  has minor <2>\n  and\n  has patch <3> }"))
     );
 }

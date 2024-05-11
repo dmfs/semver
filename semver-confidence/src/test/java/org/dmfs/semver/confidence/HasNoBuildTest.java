@@ -21,7 +21,7 @@ class HasNoBuildTest
         allOf(
             passes(mock(Version.class, with(Version::build, returning(new Absent<>())))),
             fails(mock(Version.class, with(Version::build, returning(new Present<>("123456")))),
-                describesAs(matchesPattern("had build <present <org\\.dmfs\\.jems2\\.optional\\.Present@.*> >"))),
+                describesAs(matchesPattern("had build <present \"123456\" >"))),
             hasDescription("has build <absent>")
         )
     );
