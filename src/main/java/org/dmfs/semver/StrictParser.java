@@ -23,6 +23,6 @@ public final class StrictParser implements VersionParser
             throw new IllegalArgumentException(String.format("%s is not a valid Semantic Version String.", versionString));
         }
         return new StructuredVersion(parseInt(matcher.group(1)), parseInt(matcher.group(2)), parseInt(matcher.group(3)),
-            new NullSafe<>(matcher.group(4)), new NullSafe<>(matcher.group(4)));
+            new NullSafe<>(matcher.group(4)), new NullSafe<>(matcher.group(5)));
     }
 }

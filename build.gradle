@@ -1,6 +1,6 @@
 plugins {
     id 'java-library'
-    id 'org.dmfs.gver' version '0.18.0'
+    id 'org.dmfs.gver' version '0.35.0'
     id 'io.github.gradle-nexus.publish-plugin' version '1.1.0' apply false
 }
 
@@ -32,9 +32,9 @@ gver {
             }
         }
         are minor when {
-            commitMessage contains("#feature\\b")
+            commitMessage contains(~/#feature\b/)
         }
-        otherwise patch
+        are patch otherwise
     }
     preReleases {
         on ~/main/ use { "beta" }
@@ -80,8 +80,8 @@ dependencies {
     implementation "org.dmfs:jems2:2.18.0"
 
     testImplementation project(":semver-confidence")
-    testImplementation 'org.saynotobugs:confidence-core:0.22.3'
-    testImplementation 'org.saynotobugs:confidence-incubator:0.22.3'
+    testImplementation 'org.saynotobugs:confidence-core:0.45.1'
+    testImplementation 'org.saynotobugs:confidence-incubator:0.45.1'
     testImplementation "org.dmfs:jems2-testing:2.18.0"
     testImplementation "org.dmfs:jems2-confidence:2.18.0"
     testImplementation "org.hamcrest:hamcrest:2.2"

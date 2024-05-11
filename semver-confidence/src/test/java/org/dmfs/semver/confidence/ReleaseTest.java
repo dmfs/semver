@@ -46,8 +46,8 @@ class ReleaseTest
                     with(Version::patch, returning(2)),
                     with(Version::preRelease, returning(new Present<>("123")))),
                 describesAs(matchesPattern(
-                    "\\{ ...\n  had minor <3>\n  and\n  had patch <2>\n  and\n  had preRelease <present <org\\.dmfs\\.jems2\\.optional\\.Present@.*> > \\}"))),
-            hasDescription("has major <1>\n  and\n  has minor <2>\n  and\n  has patch <3>\n  and\n  has preRelease <absent>"))
+                    "\\{ ...\n  had minor <3>\n  and\n  had patch <2>\n  and\n  had preRelease <present \"123\" > \\}"))),
+            hasDescription("{ has major <1>\n  and\n  has minor <2>\n  and\n  has patch <3>\n  and\n  has preRelease <absent> }"))
     );
 
     Assertion release_with_qualities = assertionThat(
@@ -79,7 +79,7 @@ class ReleaseTest
                     with(Version::patch, returning(2)),
                     with(Version::preRelease, returning(new Present<>("123")))),
                 describesAs(matchesPattern(
-                    "\\{ ...\n  had minor <3>\n  and\n  had patch <2>\n  and\n  had preRelease <present <org\\.dmfs\\.jems2\\.optional\\.Present@.*> > \\}"))),
-            hasDescription("has major <1>\n  and\n  has minor <2>\n  and\n  has patch <3>\n  and\n  has preRelease <absent>"))
+                    "\\{ ...\n  had minor <3>\n  and\n  had patch <2>\n  and\n  had preRelease <present \"123\" > \\}"))),
+            hasDescription("{ has major <1>\n  and\n  has minor <2>\n  and\n  has patch <3>\n  and\n  has preRelease <absent> }"))
     );
 }

@@ -49,7 +49,7 @@ class PreReleaseTest
                 with(Version::minor, returning(3)),
                 with(Version::patch, returning(2)),
                 with(Version::preRelease, returning(new Absent<>()))), "{ ...\n  had minor <3>\n  and\n  had patch <2>\n  and\n  had preRelease absent }"),
-            hasDescription("has major <1>\n  and\n  has minor <2>\n  and\n  has patch <3>\n  and\n  has preRelease present \"abc\""))
+            hasDescription("{ has major <1>\n  and\n  has minor <2>\n  and\n  has patch <3>\n  and\n  has preRelease present \"abc\" }"))
     );
 
     Assertion preRelease_with_qualities = assertionThat(
@@ -85,6 +85,6 @@ class PreReleaseTest
                 with(Version::minor, returning(3)),
                 with(Version::patch, returning(2)),
                 with(Version::preRelease, returning(new Absent<>()))), "{ ...\n  had minor <3>\n  and\n  had patch <2>\n  and\n  had preRelease absent }"),
-            hasDescription("has major <1>\n  and\n  has minor <2>\n  and\n  has patch <3>\n  and\n  has preRelease present \"abc\""))
+            hasDescription("{ has major <1>\n  and\n  has minor <2>\n  and\n  has patch <3>\n  and\n  has preRelease present \"abc\" }"))
     );
 }

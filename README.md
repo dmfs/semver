@@ -16,7 +16,7 @@ Another [Semantic Versioning 2.0.0](https://semver.org/spec/v2.0.0.html) impleme
 ### Create a version from scratch
 
 ```java
-Version version = new Release(1,0,0); // creates 1.0.0
+Version version = new Release(1, 0, 0); // creates 1.0.0
 ```
 
 ### Version math
@@ -58,7 +58,7 @@ String verString = new VersionSequence(version).toString();
 
 ## License
 
-Copyright 2023 dmfs GmbH
+Copyright 2024 dmfs GmbH
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
