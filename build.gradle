@@ -72,21 +72,19 @@ apply from: 'publish.gradle'
 apply from: 'jacoco.gradle'
 
 dependencies {
-    compileOnly 'org.eclipse.jdt:org.eclipse.jdt.annotation:2.2.600'
-    compileOnly 'org.dmfs:srcless-annotations:0.3.0'
-    annotationProcessor 'org.dmfs:srcless-processors:0.3.0'
-    annotationProcessor 'org.dmfs:nullless-processors:0.3.0'
+    compileOnly libs.eclipse.jdt.anntation
+    compileOnly libs.srcless.annotations
+    annotationProcessor libs.srcless.processors
 
-    implementation "org.dmfs:jems2:2.18.0"
+    api libs.jems2
 
     testImplementation project(":semver-confidence")
-    testImplementation 'org.saynotobugs:confidence-core:0.45.1'
-    testImplementation 'org.saynotobugs:confidence-incubator:0.45.1'
-    testImplementation "org.dmfs:jems2-testing:2.18.0"
-    testImplementation "org.dmfs:jems2-confidence:2.18.0"
-    testImplementation "org.hamcrest:hamcrest:2.2"
-    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.2'
-    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.2'
+    testImplementation libs.confidence.core
+    testImplementation libs.confidence.incubator
+    testImplementation libs.jems2.testing
+    testImplementation libs.jems2.confidence
+    testImplementation libs.junit.jupiter.api
+    testRuntimeOnly libs.junit.jupiter.engine
 }
 
 test {
