@@ -24,12 +24,6 @@ package org.dmfs.semver;
  */
 public final class MinorPreRelease extends VersionComposition
 {
-    public MinorPreRelease(Version delegate)
-    {
-        this(delegate, "alpha");
-    }
-
-
     public MinorPreRelease(Version delegate, String preRelease)
     {
         this(preRelease, new NextPreRelease(delegate, NextMinor::new, preRelease));

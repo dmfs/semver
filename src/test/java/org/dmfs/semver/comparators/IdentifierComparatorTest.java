@@ -1,18 +1,16 @@
 package org.dmfs.semver.comparators;
 
-import org.junit.jupiter.api.Test;
+import org.saynotobugs.confidence.junit5.engine.Assertion;
+import org.saynotobugs.confidence.junit5.engine.Confidence;
 
-import static org.dmfs.jems2.hamcrest.matchers.comparable.ComparableOrderMatcher.imposesOrderOf;
-import static org.hamcrest.MatcherAssert.assertThat;
+import static org.saynotobugs.confidence.core.quality.Comparator.imposesOrderOf;
+import static org.saynotobugs.confidence.junit5.engine.ConfidenceEngine.assertionThat;
 
 
+@Confidence
 class IdentifierComparatorTest
 {
-
-    @Test
-    void test()
-    {
-        assertThat(new IdentifierComparator(),
-            imposesOrderOf("1", "2", "4", "100", "alpha", "beta"));
-    }
+    Assertion IdentifierComparator_imposes_correct_order = assertionThat(
+        new IdentifierComparator(),
+        imposesOrderOf("1", "2", "4", "100", "alpha", "beta"));
 }

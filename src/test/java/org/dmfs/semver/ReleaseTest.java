@@ -6,15 +6,14 @@ import org.saynotobugs.confidence.junit5.engine.Confidence;
 
 import static org.dmfs.semver.confidence.SemVer.hasBuild;
 import static org.dmfs.semver.confidence.SemVer.release;
+import static org.saynotobugs.confidence.core.quality.Composite.allOf;
+import static org.saynotobugs.confidence.core.quality.Grammar.is;
 import static org.saynotobugs.confidence.junit5.engine.ConfidenceEngine.assertionThat;
-import static org.saynotobugs.confidence.quality.Core.allOf;
-import static org.saynotobugs.confidence.quality.Core.is;
 
 
 @Confidence
 class ReleaseTest
 {
-
     Assertion release_without_build = assertionThat(
         new Release(1, 0, 0),
         is(release(1, 0, 0)));

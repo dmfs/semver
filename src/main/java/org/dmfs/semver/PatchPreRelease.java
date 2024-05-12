@@ -22,12 +22,6 @@ package org.dmfs.semver;
  */
 public final class PatchPreRelease extends VersionComposition
 {
-    public PatchPreRelease(Version delegate)
-    {
-        this(delegate, "alpha");
-    }
-
-
     public PatchPreRelease(Version delegate, String preRelease)
     {
         super(new NextPreRelease(delegate, NextPatch::new, preRelease));
